@@ -16,8 +16,14 @@ public class QuizPageController {
     public String getQuizTitle(Model model, @PathVariable int quizId)
     {
         Quiz quiz = quizDao.getQuizById(quizId);
+        String quizTitle=quiz.getTitle();
+
 
         model.addAttribute("quiz", quiz);
+        model.addAttribute("quizTitle", quizTitle);
+
         return "quiz/quiz-page";
     }
+
+
 }
