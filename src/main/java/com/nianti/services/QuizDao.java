@@ -1,6 +1,7 @@
 package com.nianti.services;
 
 import com.nianti.models.Quiz;
+import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
@@ -16,8 +17,17 @@ public class QuizDao
     private JdbcTemplate jdbcTemplate;
 
     @Autowired
-    public QuizDao(DataSource dataSource)
+    public QuizDao()
     {
+        String databaseUrl = "jdbc:mysql://localhost:3306/trivio";
+        String userName = "root";
+        String password = "P@ssw0rd";
+        DataSource dataSource = new BasicDataSource(){{
+            setUrl(databaseUrl);
+            setUsername(userName);
+            setPassword(password);
+        }};
+
         jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
@@ -40,6 +50,27 @@ public class QuizDao
         return quizzes;
     }
 
+    public Quiz getQuizById(int id)
+    {
+        Quiz quiz = null;
+        String sql="""
+            SELECT quiz_id
+                , quiz_title
+                , is_live
+            FROM quiz
+            WHERE quiz_id = ?;
+        """;
+
+        var row = jdbcTemplate.queryForRowSet(sql, id);
+
+        if (row.next())
+        {
+            quiz = mapRowToQuiz(row);
+        }
+
+        return quiz;
+    }
+
     private Quiz mapRowToQuiz(SqlRowSet row)
     {
         int id = row.getInt("quiz_id");
@@ -48,4 +79,5 @@ public class QuizDao
 
         return new Quiz(id, title, isLive);
     }
+
 }
