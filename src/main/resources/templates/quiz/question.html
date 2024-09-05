@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<h4 id="question"></h4>
 
-<div th:replace="fragments/head :: head"></div>
-
-<body>
-    <div th:replace="fragments/navigation :: nav"></div>
-    <h1>question</h1>
-
-    <a class="btn btn-success" th:href="@{|/|}">next</a>
-
-</body>
-</html>
+<div id="answer-container">
+    <input type="radio" th:each="answer:${answers}" th:text="${answer.answerText}">
+</div>

@@ -34,4 +34,23 @@ public class QuestionDao
     {
         return null;
     }
+
+
+    public int getQuestionCount(int quizId)
+    {
+        String sql = """
+                SELECT COUNT(*) AS question_count
+                FROM question
+                WHERE quiz_id = ?;
+                """;
+
+        var row = jdbcTemplate.queryForRowSet(sql, quizId);
+
+        if (row.next())
+        {
+            return row.getInt("question_count");
+        }
+
+        return 0;
+    }
 }
