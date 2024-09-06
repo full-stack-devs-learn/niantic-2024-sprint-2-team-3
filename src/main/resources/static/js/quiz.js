@@ -8,16 +8,30 @@ let quizId;
 let questionId;
 let container;
 let button;
+let submitError;
 
 document.addEventListener("DOMContentLoaded", () => {
     container = document.getElementById("question-container");
     quizId = document.getElementById("quiz-id").textContent;
     button = document.getElementById("quiz-button");
+    submitError = document.createElement("p");
 
     // button event
     button.addEventListener("click", () => {
-        checkAnswer()
-        loadQuestion();
+        if (firstQuestion || checkAnswer())
+        {
+            loadQuestion();
+        }
+        else
+        {
+            if (submitError.parentElement === container)
+            {
+                container.removeChild(submitError);
+            }
+            submitError.textContent = "Oh no! Please answer :(";
+            submitError.style.color = 'red';
+            container.appendChild(submitError);
+        }
     })
 
     // change questionTotal based on amount of questions in quiz
@@ -89,10 +103,16 @@ function loadResults()
 {
     // add a try again button? change button to home page or list of quizzes?
     let title = document.createElement("h4");
-    title.textContent = "Results";
     let result = document.createElement("p");
-    result.textContent = correctTracker;
+    let fraction = document.createElement("p");
+
+    title.textContent = "Results";
+    fraction.textContent = correctTracker + '/' + questionTotal;
+    result.textContent = "You got " + correctTracker + " correct!";
+
     container.appendChild(title);
+    container.appendChild(fraction);
+    container.appendChild(result);
 }
 
 function displayQuestion(data, container)
@@ -131,12 +151,20 @@ function displayAnswers(data, container)
 
  function checkAnswer()
  {
-   const answers=document.getElementsByName("answer")
+    let chosen = false;
+    const answers = document.getElementsByName("answer")
 
-   answers.forEach(answer =>
-   {
-    if(answer.checked && answer.value==="true") correctTracker++;
-  })
+    answers.forEach(answer => {
+        if (answer.checked)
+        {
+            chosen = true;
+        }
+        if (answer.checked && answer.value==="true")
+        {
+            correctTracker++;
+        }
+    })
 
+    return chosen;
 
  }
