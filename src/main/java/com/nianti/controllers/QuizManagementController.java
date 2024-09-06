@@ -19,7 +19,7 @@ public class QuizManagementController
 
         model.addAttribute("quizzes", quizzes);
 
-        return "";
+        return "quiz-management/index";
     }
 
 

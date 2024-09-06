@@ -5,13 +5,28 @@
 
 <body>
 
-<div th:replace="fragments/navigation :: nav"></div>
+    <div th:replace="fragments/navigation :: nav"></div>
 
-<div class="container mt-4">
-    <div class="card mb-2" th:each="quiz:${quizzes}">
-        <div class="card-header"><a th:text="${quiz.title}" th:href="@{|/quiz/${quiz.quizId}|}"></a></div>
-    </div>
-</div>
+    <main class="container mt-4">
+        <h1>Quiz Management</h1>
+
+        <button class="btn btn-primary mt-4 mb-4">Add</button>
+
+        <table class="table table-striped">
+            <thead class="table-dark">
+                <th>Quiz Title</th>
+                <th>Live</th>
+                <th>Edit Quiz</th>
+            </thead>
+            <tbody>
+                <tr th:each="quiz:${quizzes}">
+                    <th th:text="${quiz.title}" th:href="@{|/quiz/${quiz.quizId}|}"></th>
+                    <td th:text="${quiz.isLive}"></td>
+                    <td><button class="btn btn-warning">Edit (Not Working)</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
 
 </body>
 </html>

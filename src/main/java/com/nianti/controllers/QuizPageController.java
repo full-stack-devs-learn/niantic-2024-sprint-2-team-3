@@ -19,7 +19,7 @@ public class QuizPageController {
 
         model.addAttribute("quiz", quiz);
 
-        return "quiz/quiz-page";
+        return "quiz-page/quiz-page";
     }
 
 
