@@ -8,6 +8,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
+import java.util.ArrayList;
 import java.util.List;
 
 @Component
@@ -32,6 +33,33 @@ public class AnswerDao
 
     public List<Answer> getAnswersByQuestionId(int questionId)
     {
-        return null;
+        List<Answer> answers = new ArrayList<>();
+        String sql= """
+                SELECT  answer_id
+                       ,answer_text
+                       ,is_correct
+               FROM answer
+               WHERE question_id = ?;
+     
+               """;
+        var row = jdbcTemplate.queryForRowSet(sql, questionId);
+
+        while (row.next())
+        {
+            int answerId = row.getInt("answer_id");
+            String answerText = row.getString("answer_text");
+            int correctInt = row.getInt("is_correct");
+            Boolean isCorrect=true;
+            if (correctInt==0){isCorrect=false;}
+
+            Answer answer= new Answer(answerId,questionId,answerText,isCorrect);
+            answers.add(answer);
+        }
+
+        return answers;
+
+
+
+
     }
 }
