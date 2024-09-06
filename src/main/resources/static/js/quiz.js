@@ -69,6 +69,17 @@ function loadQuestion()
 
 function loadAnswers()
 {
+     if (questionPage===pageTotal+1) return;
+    const url= `/api/quiz/${questionId}/answer`;
+
+    fetch(url)
+    .then(response => {return response.json()})
+    .then(data =>{
+
+    data.forEach(answer=>displayAnswers(answer,container))
+
+    })
+
 
 }
 
