@@ -8,18 +8,22 @@
 <div th:replace="fragments/navigation :: nav"></div>
 
 <main class="container mt-4">
+
+    <h1>Add Quiz</h1>
+
     <form method="post" th:object="${quiz}">
-        <div class="form-floating mb-3 ">
-            <input type="text" th:field="*{quizTitle}" placeholder="Title">
-            <label th:for="*{quizTitle}">Title</label>
+        <div class="form-floating mb-3">
+            <input type="text" th:field="*{title}" placeholder="Title" class="form-control">
+            <label th:for="*{title}">Title</label>
         </div>
-        <div class="form-floating mb-3 ">
-            <input type="text" th:field="*{isLive}" placeholder="Live">
-            <label th:for="*{isLive}">Live</label>
+        <div class="form-check mb-3">
+            <input type="checkbox" th:field="*{isLive}" class="form-check-input">
+            <label th:for="*{isLive}">Check if you want this Quiz to be LIVE</label>
+        </div>
+        <div>
+            <input type="submit" class="btn btn-success" value="Add">
         </div>
     </form>
-
-
 </main>
 </body>
 </html>

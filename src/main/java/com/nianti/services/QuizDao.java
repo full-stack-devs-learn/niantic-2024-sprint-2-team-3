@@ -84,11 +84,12 @@ public class QuizDao
     public void addQuiz(Quiz quiz)
     {
         String sql= """
-                INSERT INTO quiz (quiz_title,is_live)
-                VALUES(?,?);
-                
+                INSERT INTO quiz (quiz_title, is_live)
+                VALUES (?, ?);
                 """;
-        jdbcTemplate.update(sql,quiz.getTitle(),quiz.isLive());
+        jdbcTemplate.update(sql
+                ,quiz.getTitle()
+                ,quiz.getIsLive());
 
     }
 }

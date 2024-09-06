@@ -5,7 +5,12 @@ import com.nianti.services.QuizDao;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class QuizManagementController
@@ -25,10 +30,24 @@ public class QuizManagementController
     @GetMapping("/quiz/add")
     public String addQuiz(Model model)
     {
+        List<Boolean> liveOptions = new ArrayList<>()
+        {{
+            add(true);
+            add(false);
+        }};
+
         model.addAttribute("quiz", new Quiz());
+        model.addAttribute("liveOptions", liveOptions);
 
         return "quiz-management/add-quiz";
     }
 
+    @PostMapping("/quiz/add")
+    public String addQuiz(@ModelAttribute("quiz") Quiz quiz)
+    {
+        quizDao.addQuiz(quiz);
+
+        return "redirect:/quizzes";
+    }
 
 }
