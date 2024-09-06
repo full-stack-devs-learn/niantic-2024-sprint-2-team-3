@@ -29,7 +29,7 @@ public class QuizPageApiController
     }
 
     @GetMapping("/api/quiz/{questionId}/answer")
-    public List<Answer> getAllAnswers(@PathVariable int quizId, @PathVariable int questionId)
+    public List<Answer> getAnswersByQuestion(@PathVariable int questionId)
     {
         List<Answer> answers;
         answers = answerDao.getAnswersByQuestionId(questionId);

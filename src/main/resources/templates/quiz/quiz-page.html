@@ -4,9 +4,11 @@
 <div th:replace="fragments/head :: head"></div>
 
 <body>
+    <script src="/js/quiz.js"></script>
+
     <div th:replace="fragments/navigation :: nav"></div>
+    <h4>Quiz <span id="quiz-id" th:text="${quiz.quizId}"></span></h4>
     <h1 th:text="${quiz.title}"></h1>
-    <h2 id="quiz-id" th:text="${quiz.quizId}"></h2>
 
     <div id="question-container">
 

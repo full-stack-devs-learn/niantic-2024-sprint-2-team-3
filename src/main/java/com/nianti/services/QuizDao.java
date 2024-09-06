@@ -53,7 +53,7 @@ public class QuizDao
     public Quiz getQuizById(int id)
     {
         Quiz quiz = null;
-        String sql="""
+        String sql = """
             SELECT quiz_id
                 , quiz_title
                 , is_live

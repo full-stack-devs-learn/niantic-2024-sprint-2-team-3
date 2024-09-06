@@ -2,16 +2,18 @@ let questionPage = 1;
 let questionTotal = 1;
 let pageTotal = 1;
 let firstQuestion = true;
-let quizId;
 
+let quizId;
+let questionId;
+let container;
 let button;
 
 document.addEventListener("DOMContentLoaded", () => {
-    // on load
+    container = document.getElementById("question-container");
     quizId = document.getElementById("quiz-id").textContent;
     button = document.getElementById("quiz-button");
 
-    // when button is 'START'
+    // button event
     button.addEventListener("click", () => {
         loadQuestion();
     })
@@ -27,40 +29,87 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function loadQuestion()
 {
-    // if this is the first question, change button text
+    // if this is the first question, change button text from start to next
     if (firstQuestion)
     {
         button.textContent = "Next";
         firstQuestion = false;
     }
 
-    // if this is the last question, change button text
+    // after last question, load results fragment instead
     if (questionPage === pageTotal)
     {
-        button.textContent = "Results";
-        // maybe add function here for displaying final result after submitting instead of changing button
+        container.innerHTML = "";
+        loadResults();
+        return;
     }
 
+    // if this is the last question, change button text & prepare to load results fragment
+    if (questionPage === pageTotal - 1)
+    {
+        button.textContent = "Results";
+    }
+
+    // load question fragments
     const url = `/api/quiz/${quizId}/${questionPage}`;
 
     fetch(url)
     .then(response => {return response.json()})
     .then(data => {
-        let container = document.getElementById("question-container");
         container.innerHTML = '';
+        questionId = data.questionId;
 
         displayQuestion(data, container);
+
+        // WHY DOES THIS ONLY WORK WITHIN DATA AND NOT OUTSIDE ( why doesnt questionID get updated until second button click)
+        loadAnswers();
     })
+    questionPage ++;
+}
+
+function loadAnswers()
+{
+
+}
+
+function loadResults()
+{
+    // add a try again button? change button to home page or list of quizzes?
+    let title = document.createElement("h4");
+    title.textContent = "Results";
+    container.appendChild(title);
 }
 
 function displayQuestion(data, container)
 {
-    let text = document.createElement("h4");
-    let questionNum = document.createElement("h4");
+    let question = document.createElement("h4");
 
-    text.textContent = data.questionText;
-    questionNum.textContent = data.questionNumber;
+    question.textContent = "Question " + data.questionNumber + ": " + data.questionText;
 
-    container.appendChild(questionNum);
-    container.appendChild(text);
+    container.appendChild(question);
+}
+
+function displayAnswers(data, container)
+{
+    let div = document.createElement("div");
+    let input = document.createElement("input");
+    let label = document.createElement("label");
+
+    input.setAttribute('id', data.answerId.toString());
+    input.type = "radio";
+    input.name="answer";
+    // WHY WAS THIS RENAMED TO CORRECT
+    input.value = data.correct.toString();
+
+    label.htmlFor = data.answerId.toString();
+    label.textContent = data.answerText;
+
+    div.classList.add("form-check");
+    input.classList.add("form-check-input");
+    label.classList.add("form-check-label");
+
+    div.appendChild(input);
+    div.appendChild(label);
+
+    container.appendChild(div);
 }
