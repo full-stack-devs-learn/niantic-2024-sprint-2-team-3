@@ -22,7 +22,13 @@ public class QuizManagementController
         return "quiz-management/index";
     }
 
+    @GetMapping("/quiz/add")
+    public String addQuiz(Model model)
+    {
+        model.addAttribute("quiz", new Quiz());
 
+        return "quiz-management/add-quiz";
+    }
 
 
 }
