@@ -11,10 +11,11 @@
 
     <h1>Add Quiz</h1>
 
-    <form method="post" th:object="${quiz}">
+    <form method="post" th:object="${quiz}" novalidate>
         <div class="form-floating mb-3">
-            <input type="text" th:field="*{title}" placeholder="Title" class="form-control">
+            <input type="text" th:field="*{title}" placeholder="Title" class="form-control" required>
             <label th:for="*{title}">Title</label>
+            <div th:if="${isInvalid}" class="text-danger">Quiz title is required.</div>
         </div>
         <div class="form-check mb-3">
             <input type="checkbox" th:field="*{isLive}" class="form-check-input">

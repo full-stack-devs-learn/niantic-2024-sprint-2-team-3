@@ -2,8 +2,10 @@ package com.nianti.controllers;
 
 import com.nianti.models.Quiz;
 import com.nianti.services.QuizDao;
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -43,8 +45,15 @@ public class QuizManagementController
     }
 
     @PostMapping("/quiz/add")
-    public String addQuiz(@ModelAttribute("quiz") Quiz quiz)
+    public String addQuiz(Model model, @Valid @ModelAttribute("quiz") Quiz quiz, BindingResult result)
     {
+        if (result.hasErrors())
+        {
+            model.addAttribute("isInvalid", true);
+
+            return "quiz-management/add-quiz";
+        }
+
         quizDao.addQuiz(quiz);
 
         return "redirect:/quizzes";
