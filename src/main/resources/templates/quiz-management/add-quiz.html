@@ -8,6 +8,17 @@
 <div th:replace="fragments/navigation :: nav"></div>
 
 <main class="container mt-4">
+    <form method="post" th:object="${quiz}">
+        <div class="form-floating mb-3 ">
+            <input type="text" th:field="*{quizTitle}" placeholder="Title">
+            <label th:for="*{quizTitle}">Title</label>
+        </div>
+        <div class="form-floating mb-3 ">
+            <input type="text" th:field="*{isLive}" placeholder="Live">
+            <label th:for="*{isLive}">Live</label>
+        </div>
+    </form>
+
 
 </main>
 </body>
