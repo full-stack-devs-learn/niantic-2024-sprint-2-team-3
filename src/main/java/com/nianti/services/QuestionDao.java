@@ -59,7 +59,28 @@ public class QuestionDao
        return questions;
     }
 
+    public Question getQuestionByNumber(int quizId, int questionNumber)
+    {
+        String sql = """
+                SELECT question_id
+                       ,quiz_text
+                FROM question
+                WHERE quiz_id = ?
+                    AND question_number = ?;
+                """;
 
+        var row = jdbcTemplate.queryForRowSet(sql, quizId, questionNumber);
+
+        if (row.next())
+        {
+            int questionId = row.getInt("question_id");
+            String quizText = row.getString("quiz_text");
+
+            return new Question(questionId, quizId, questionNumber, quizText);
+        }
+
+        return new Question();
+    }
 
     public int getQuestionCount(int quizId)
     {

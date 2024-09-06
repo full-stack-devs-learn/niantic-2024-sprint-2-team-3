@@ -19,13 +19,13 @@ public class QuizPageApiController
     QuestionDao questionDao = new QuestionDao();
     AnswerDao answerDao = new AnswerDao();
 
-    @GetMapping("/api/quiz/{quizId}/{questionId}")
-    public List<Question> getAllQuestions(@PathVariable int quizId, @PathVariable int questionId)
+    @GetMapping("/api/quiz/{quizId}/{questionNum}")
+    public Question getAQuestion(@PathVariable int quizId, @PathVariable int questionNum)
     {
-        List<Question> questions;
-        questions = questionDao.getQuestionByQuizId(quizId);
+        Question question;
+        question = questionDao.getQuestionByNumber(quizId, questionNum);
 
-        return questions;
+        return question;
     }
 
     @GetMapping("/api/quiz/{questionId}/answer")

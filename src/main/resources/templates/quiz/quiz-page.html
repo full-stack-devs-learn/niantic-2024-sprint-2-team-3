@@ -5,14 +5,14 @@
 
 <body>
     <div th:replace="fragments/navigation :: nav"></div>
-    <h1 th:text="${quizTitle}"></h1>
-    <p id="quiz-id" th:text="${quiz.quizId}"></p>
+    <h1 th:text="${quiz.title}"></h1>
+    <h2 id="quiz-id" th:text="${quiz.quizId}"></h2>
 
-    <div id="fragment-container">
+    <div id="question-container">
 
     </div>
 
-    <a id="quiz-button" class="btn btn-success">start</a>
+    <a id="quiz-button" class="btn btn-success">Start</a>
 
 </body>
 </html>
