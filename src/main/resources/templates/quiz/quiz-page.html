@@ -5,8 +5,9 @@
 
 <body>
     <script src="/js/quiz.js"></script>
-
     <div th:replace="fragments/navigation :: nav"></div>
+    <main class="container mt-4">
+
     <h4>Quiz <span id="quiz-id" th:text="${quiz.quizId}"></span></h4>
     <h1 th:text="${quiz.title}"></h1>
 
@@ -15,6 +16,6 @@
     </div>
 
     <a id="quiz-button" class="btn btn-success">Start</a>
-
+    </main>
 </body>
 </html>
