@@ -2,6 +2,7 @@ let questionPage = 1;
 let questionTotal = 1;
 let pageTotal = 1;
 let firstQuestion = true;
+let correctTracker=0;
 
 let quizId;
 let questionId;
@@ -15,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // button event
     button.addEventListener("click", () => {
+        checkAnswer()
         loadQuestion();
     })
 
@@ -88,6 +90,8 @@ function loadResults()
     // add a try again button? change button to home page or list of quizzes?
     let title = document.createElement("h4");
     title.textContent = "Results";
+    let result = document.createElement("p");
+    result.textContent = correctTracker;
     container.appendChild(title);
 }
 
@@ -124,3 +128,15 @@ function displayAnswers(data, container)
 
     container.appendChild(div);
 }
+
+ function checkAnswer()
+ {
+   const answers=document.getElementsByName("answer")
+
+   answers.forEach(answer =>
+   {
+    if(answer.checked && answer.value==="true") correctTracker++;
+  })
+
+
+ }
