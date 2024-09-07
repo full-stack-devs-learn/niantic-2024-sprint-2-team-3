@@ -22,7 +22,7 @@
                 <tr th:each="quiz:${quizzes}">
                     <th th:text="${quiz.title}" th:href="@{|/quiz/${quiz.quizId}|}"></th>
                     <td th:text="${quiz.isLive}"></td>
-                    <td><button th:href="@{|/quiz/${quiz.quizId}/edit|}" class="btn btn-warning">Edit</button></td>
+                    <td><a th:href="@{|/quiz/${quiz.quizId}/edit|}" class="btn btn-warning">Edit</a></td>
                 </tr>
             </tbody>
         </table>
