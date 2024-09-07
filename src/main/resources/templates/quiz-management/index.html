@@ -20,7 +20,7 @@
             </thead>
             <tbody>
                 <tr th:each="quiz:${quizzes}">
-                    <th th:text="${quiz.title}" th:href="@{|/quiz/${quiz.quizId}|}"></th>
+                    <th><a th:text="${quiz.title}" th:href="@{|/quiz/${quiz.quizId}/details|}"></a></th>
                     <td th:text="${quiz.isLive}"></td>
                     <td><a th:href="@{|/quiz/${quiz.quizId}/edit|}" class="btn btn-warning">Edit</a></td>
                 </tr>
