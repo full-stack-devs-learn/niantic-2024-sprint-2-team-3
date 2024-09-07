@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<div th:replace="fragments/head :: head"></div>
+
+<body>
+<div th:replace="fragments/navigation :: nav"></div>
+
+<main class="container mt-4">
+    <h4>Quiz : <span th:text="${quiz.title}"></span></h4>
+    <h1 th:if="${action} == 'add'">Add Question</h1>
+    <h1 th:if="${action} == 'edit'">Edit Question</h1>
+
+    <form method="post" th:object="${question}">
+        <div class="form-floating mb-3">
+            <select th:field="*{quizId}" class="form-select">
+                <option th:each="quiz:${quizzes}" th:value="${quiz.quizId}" th:text="${quiz.title}"></option>
+            </select>
+            <label th:for="*{quizId}">Choose Quiz</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input class="form-control" type="text" th:field="*{questionNumber}" placeholder="Question Number">
+            <label th:for="*{questionNumber}">Question Number</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input class="form-control" type="text" th:field="*{questionText}" placeholder="Question Text">
+            <label th:for="*{questionText}">Question Text</label>
+        </div>
+        <div>
+            <input type="submit" class="btn btn-success" value="Submit">
+        </div>
+    </form>
+</main>
+
+</body>
+</html>

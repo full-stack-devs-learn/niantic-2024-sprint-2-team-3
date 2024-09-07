@@ -81,6 +81,30 @@ public class QuestionDao
         return new Question();
     }
 
+    public Question getQuestionById(int questionId)
+    {
+        String sql = """
+                SELECT quiz_id
+                     , question_number
+                    , question_text
+                FROM question
+                WHERE question_id = ?;
+                """;
+
+        var row = jdbcTemplate.queryForRowSet(sql, questionId);
+
+        if (row.next())
+        {
+            int quizId = row.getInt("quiz_id");
+            int questionNumber = row.getInt("question_number");
+            String questionText = row.getString("question_text");
+
+            return new Question(questionId, quizId, questionNumber, questionText);
+        }
+
+        return new Question();
+    }
+
     public int getQuestionCount(int quizId)
     {
         String sql = """
@@ -97,5 +121,35 @@ public class QuestionDao
         }
 
         return 0;
+    }
+
+    public void addQuestion(Question question)
+    {
+        String sql = """
+                INSERT INTO question (quiz_id, question_number, question_text)
+                VALUES (?, ?, ?);
+                """;
+
+        jdbcTemplate.update(sql
+                , question.getQuizId()
+                , question.getQuestionNumber()
+                , question.getQuestionText());
+    }
+
+    public void editQuestion(Question question)
+    {
+        String sql = """
+                UPDATE question
+                SET quiz_id = ?
+                    , question_number = ?
+                    , question_text = ?
+                WHERE question_id = ?
+                """;
+
+        jdbcTemplate.update(sql
+                , question.getQuizId()
+                , question.getQuestionNumber()
+                , question.getQuestionText()
+                , question.getQuestionId());
     }
 }
