@@ -32,16 +32,10 @@ public class QuizManagementController
     @GetMapping("/quiz/add")
     public String addQuiz(Model model)
     {
-        List<Boolean> liveOptions = new ArrayList<>()
-        {{
-            add(true);
-            add(false);
-        }};
-
         model.addAttribute("quiz", new Quiz());
-        model.addAttribute("liveOptions", liveOptions);
+        model.addAttribute("action", "add");
 
-        return "quiz-management/add-quiz";
+        return "quiz-management/add-edit-quiz";
     }
 
     @PostMapping("/quiz/add")
@@ -51,10 +45,37 @@ public class QuizManagementController
         {
             model.addAttribute("isInvalid", true);
 
-            return "quiz-management/add-quiz";
+            return "quiz-management/add-edit-quiz";
         }
 
         quizDao.addQuiz(quiz);
+
+        return "redirect:/quizzes";
+    }
+
+    @GetMapping("/quiz/{id}/edit")
+    public String updateQuiz(Model model, @PathVariable int id)
+    {
+        Quiz quiz = quizDao.getQuizById(id);
+
+        model.addAttribute("quiz", quiz);
+        model.addAttribute("action", "edit");
+
+        return "quiz-management/add-edit-quiz";
+    }
+
+    @PostMapping("/quiz/{id}/edit")
+    public String updateQuiz(Model model, @PathVariable int id, @Valid @ModelAttribute("quiz") Quiz quiz, BindingResult result)
+    {
+        if (result.hasErrors())
+        {
+            model.addAttribute("isInvalid", true);
+
+            return "quiz-management/add-edit-quiz";
+        }
+
+        quiz.setQuizId(id);
+        quizDao.editQuiz(quiz);
 
         return "redirect:/quizzes";
     }

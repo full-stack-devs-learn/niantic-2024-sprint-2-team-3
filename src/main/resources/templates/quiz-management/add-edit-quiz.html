@@ -4,12 +4,13 @@
 <div th:replace="fragments/head :: head"></div>
 
 <body>
-<script src="/js/add-quiz.js"></script>
+<script src="/js/add-edit-quiz.js"></script>
 <div th:replace="fragments/navigation :: nav"></div>
 
 <main class="container mt-4">
 
-    <h1>Add Quiz</h1>
+    <h1 th:if="${action} == 'add'">Add Quiz</h1>
+    <h1 th:if="${action} == 'edit'">Edit Quiz</h1>
 
     <form id="add-quiz" method="post" th:object="${quiz}" novalidate>
         <div class="form-floating mb-3">
