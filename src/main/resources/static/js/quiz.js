@@ -111,6 +111,8 @@ function loadResults()
     container.appendChild(title);
     container.appendChild(fraction);
     container.appendChild(result);
+
+    button.remove()
 }
 
 function displayQuestion(data, container)
