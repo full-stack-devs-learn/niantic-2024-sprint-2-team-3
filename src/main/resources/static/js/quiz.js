@@ -77,7 +77,6 @@ function loadQuestion()
 
         displayQuestion(data, container);
 
-        // WHY DOES THIS ONLY WORK WITHIN DATA AND NOT OUTSIDE ( why doesnt questionID get updated until second button click)
         loadAnswers();
     })
     questionPage ++;
@@ -85,7 +84,7 @@ function loadQuestion()
 
 function loadAnswers()
 {
-     if (questionPage===pageTotal+1) return;
+     if (questionPage === pageTotal + 1) return;
     const url= `/api/quiz/${questionId}/answer`;
 
     fetch(url)
@@ -101,7 +100,6 @@ function loadAnswers()
 
 function loadResults()
 {
-    // add a try again button? change button to home page or list of quizzes?
     let title = document.createElement("h4");
     let result = document.createElement("p");
     let fraction = document.createElement("p");
@@ -133,7 +131,6 @@ function displayAnswers(data, container)
     input.setAttribute('id', data.answerId.toString());
     input.type = "radio";
     input.name="answer";
-    // WHY WAS THIS RENAMED TO CORRECT
     input.value = data.correct.toString();
 
     label.htmlFor = data.answerId.toString();
