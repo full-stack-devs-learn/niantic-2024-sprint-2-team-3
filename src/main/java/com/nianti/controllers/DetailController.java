@@ -1,7 +1,9 @@
 package com.nianti.controllers;
 
+import com.nianti.models.Answer;
 import com.nianti.models.Question;
 import com.nianti.models.Quiz;
+import com.nianti.services.AnswerDao;
 import com.nianti.services.QuestionDao;
 import com.nianti.services.QuizDao;
 import org.springframework.stereotype.Controller;
@@ -18,6 +20,7 @@ public class DetailController
 {
     QuestionDao questionDao = new QuestionDao();
     QuizDao quizDao = new QuizDao();
+    AnswerDao answerDao = new AnswerDao();
 
     @GetMapping("/quiz/{quizId}/details")
     public String getQuizDetails(Model model, @PathVariable int quizId)
@@ -74,5 +77,19 @@ public class DetailController
         questionDao.editQuestion(question);
 
         return "redirect:/quiz/" + quizId + "/details";
+    }
+
+    @GetMapping("/quiz/{quizId}/{questionId}/details")
+    public String getQuestionDetails(Model model, @PathVariable int quizId, @PathVariable int questionId)
+    {
+        Quiz quiz = quizDao.getQuizById(quizId);
+        Question question = questionDao.getQuestionById(questionId);
+        List<Answer> answers = answerDao.getAnswersByQuestionId(questionId);
+
+        model.addAttribute("quiz", quiz);
+        model.addAttribute("question", question);
+        model.addAttribute("answers", answers);
+
+        return "details/question-details";
     }
 }

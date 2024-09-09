@@ -24,7 +24,7 @@
         <tbody class="table-light">
         <tr th:each="question:${questions}">
             <td th:text="${question.questionNumber}"></td>
-            <th th:text="${question.questionText}"></th>
+            <th><a th:href="@{|/quiz/${quiz.quizId}/${question.questionId}/details|}" th:text="${question.questionText}"></a></th>
             <td><a th:href="@{|/quiz/${quiz.quizId}/${question.questionId}/edit|}" class="btn btn-warning">Edit Question</a></td>
         </tr>
         </tbody>
