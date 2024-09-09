@@ -34,70 +34,46 @@
       </root>
     </mxGraphModel>
   </diagram>
-  <diagram id="ls7WrLQnNKbi1zV_KO7f" name="Controllers">
-    <mxGraphModel dx="746" dy="491" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+  <diagram id="ls7WrLQnNKbi1zV_KO7f" name="Models">
+    <mxGraphModel dx="816" dy="538" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="rYNKQTvkHmhM2e4mNmR0-1" value="HomeController" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="120" y="80" width="300" height="86" as="geometry" />
+        <mxCell id="rYNKQTvkHmhM2e4mNmR0-1" value="Quiz" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+          <mxGeometry x="120" y="80" width="200" height="200" as="geometry" />
         </mxCell>
-        <mxCell id="rYNKQTvkHmhM2e4mNmR0-2" value="- quizDao: QuizDao" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="rYNKQTvkHmhM2e4mNmR0-1" vertex="1">
-          <mxGeometry y="26" width="300" height="26" as="geometry" />
+        <mxCell id="rYNKQTvkHmhM2e4mNmR0-2" value="- quizId: int&lt;div&gt;- title: String&lt;/div&gt;&lt;div&gt;- isLive: boolean&lt;/div&gt;&lt;div&gt;- questions: List&amp;lt;Question&amp;gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="rYNKQTvkHmhM2e4mNmR0-1" vertex="1">
+          <mxGeometry y="26" width="200" height="74" as="geometry" />
         </mxCell>
         <mxCell id="rYNKQTvkHmhM2e4mNmR0-3" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="rYNKQTvkHmhM2e4mNmR0-1" vertex="1">
-          <mxGeometry y="52" width="300" height="8" as="geometry" />
+          <mxGeometry y="100" width="200" height="8" as="geometry" />
         </mxCell>
-        <mxCell id="rYNKQTvkHmhM2e4mNmR0-4" value="+ index(Model): String" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="rYNKQTvkHmhM2e4mNmR0-1" vertex="1">
-          <mxGeometry y="60" width="300" height="26" as="geometry" />
+        <mxCell id="rYNKQTvkHmhM2e4mNmR0-4" value="+ Quiz()&lt;div&gt;+ Quiz(int, String, boolean)&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;+ getters&lt;/div&gt;&lt;div&gt;+ setters&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="rYNKQTvkHmhM2e4mNmR0-1" vertex="1">
+          <mxGeometry y="108" width="200" height="92" as="geometry" />
         </mxCell>
-        <mxCell id="rYNKQTvkHmhM2e4mNmR0-5" value="DetailController" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="120" y="300" width="300" height="86" as="geometry" />
+        <mxCell id="rYNKQTvkHmhM2e4mNmR0-13" value="Answer" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="560" y="80" width="200" height="200" as="geometry" />
         </mxCell>
-        <mxCell id="rYNKQTvkHmhM2e4mNmR0-6" value="- quizDao: QuizDao" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="rYNKQTvkHmhM2e4mNmR0-5" vertex="1">
-          <mxGeometry y="26" width="300" height="26" as="geometry" />
-        </mxCell>
-        <mxCell id="rYNKQTvkHmhM2e4mNmR0-7" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="rYNKQTvkHmhM2e4mNmR0-5" vertex="1">
-          <mxGeometry y="52" width="300" height="8" as="geometry" />
-        </mxCell>
-        <mxCell id="rYNKQTvkHmhM2e4mNmR0-8" value="+ getQuizName(Model): String" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="rYNKQTvkHmhM2e4mNmR0-5" vertex="1">
-          <mxGeometry y="60" width="300" height="26" as="geometry" />
-        </mxCell>
-        <mxCell id="rYNKQTvkHmhM2e4mNmR0-9" value="QuizManagementController" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="440" y="190" width="300" height="86" as="geometry" />
-        </mxCell>
-        <mxCell id="rYNKQTvkHmhM2e4mNmR0-10" value="- quizDao: QuizDao" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="rYNKQTvkHmhM2e4mNmR0-9" vertex="1">
-          <mxGeometry y="26" width="300" height="26" as="geometry" />
-        </mxCell>
-        <mxCell id="rYNKQTvkHmhM2e4mNmR0-11" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="rYNKQTvkHmhM2e4mNmR0-9" vertex="1">
-          <mxGeometry y="52" width="300" height="8" as="geometry" />
-        </mxCell>
-        <mxCell id="rYNKQTvkHmhM2e4mNmR0-12" value="+ getQuizQuestionAnswer(Model): String" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="rYNKQTvkHmhM2e4mNmR0-9" vertex="1">
-          <mxGeometry y="60" width="300" height="26" as="geometry" />
-        </mxCell>
-        <mxCell id="rYNKQTvkHmhM2e4mNmR0-13" value="QuizPageApiController" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="120" y="190" width="300" height="86" as="geometry" />
-        </mxCell>
-        <mxCell id="rYNKQTvkHmhM2e4mNmR0-14" value="- quizDao: QuizDao" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="rYNKQTvkHmhM2e4mNmR0-13" vertex="1">
-          <mxGeometry y="26" width="300" height="26" as="geometry" />
+        <mxCell id="rYNKQTvkHmhM2e4mNmR0-14" value="- answerId: int&lt;div&gt;- questionId: int&lt;/div&gt;&lt;div&gt;- answerText: String&lt;/div&gt;&lt;div&gt;- isCorrect: boolean&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="rYNKQTvkHmhM2e4mNmR0-13" vertex="1">
+          <mxGeometry y="26" width="200" height="74" as="geometry" />
         </mxCell>
         <mxCell id="rYNKQTvkHmhM2e4mNmR0-15" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="rYNKQTvkHmhM2e4mNmR0-13" vertex="1">
-          <mxGeometry y="52" width="300" height="8" as="geometry" />
+          <mxGeometry y="100" width="200" height="8" as="geometry" />
         </mxCell>
-        <mxCell id="rYNKQTvkHmhM2e4mNmR0-16" value="+ getResults(Model): String" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="rYNKQTvkHmhM2e4mNmR0-13" vertex="1">
-          <mxGeometry y="60" width="300" height="26" as="geometry" />
+        <mxCell id="rYNKQTvkHmhM2e4mNmR0-16" value="+ Answer()&lt;div&gt;+ Answer(int, int, String, boolean)&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;+ getters&lt;/div&gt;&lt;div&gt;+ setters&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="rYNKQTvkHmhM2e4mNmR0-13" vertex="1">
+          <mxGeometry y="108" width="200" height="92" as="geometry" />
         </mxCell>
-        <mxCell id="Pb5JCV2al7-6g1U-EFZV-1" value="QuizPageController" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="440" y="80" width="300" height="86" as="geometry" />
+        <mxCell id="Pb5JCV2al7-6g1U-EFZV-1" value="Question" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="340" y="80" width="200" height="200" as="geometry" />
         </mxCell>
-        <mxCell id="Pb5JCV2al7-6g1U-EFZV-2" value="- quizDao: QuizDao" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="Pb5JCV2al7-6g1U-EFZV-1">
-          <mxGeometry y="26" width="300" height="26" as="geometry" />
+        <mxCell id="Pb5JCV2al7-6g1U-EFZV-2" value="- questionId: int&lt;div&gt;- quizId: int&lt;/div&gt;&lt;div&gt;- questionNumber: int&lt;/div&gt;&lt;div&gt;- questionText: String&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="Pb5JCV2al7-6g1U-EFZV-1" vertex="1">
+          <mxGeometry y="26" width="200" height="74" as="geometry" />
         </mxCell>
-        <mxCell id="Pb5JCV2al7-6g1U-EFZV-3" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="Pb5JCV2al7-6g1U-EFZV-1">
-          <mxGeometry y="52" width="300" height="8" as="geometry" />
+        <mxCell id="Pb5JCV2al7-6g1U-EFZV-3" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="Pb5JCV2al7-6g1U-EFZV-1" vertex="1">
+          <mxGeometry y="100" width="200" height="8" as="geometry" />
         </mxCell>
-        <mxCell id="Pb5JCV2al7-6g1U-EFZV-4" value="+ getResults(Model): String" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="Pb5JCV2al7-6g1U-EFZV-1">
-          <mxGeometry y="60" width="300" height="26" as="geometry" />
+        <mxCell id="Pb5JCV2al7-6g1U-EFZV-4" value="+ Question()&lt;div&gt;+ Question(int, int, int, String)&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;+ getters&lt;/div&gt;&lt;div&gt;+ setters&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="Pb5JCV2al7-6g1U-EFZV-1" vertex="1">
+          <mxGeometry y="108" width="200" height="92" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
@@ -155,7 +131,7 @@
         <mxCell id="RQixRNtty0hlfD8ZV_bc-7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="RQixRNtty0hlfD8ZV_bc-1" target="RQixRNtty0hlfD8ZV_bc-6" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="RQixRNtty0hlfD8ZV_bc-1" value="Quizzes" style="html=1;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+        <mxCell id="RQixRNtty0hlfD8ZV_bc-1" value="Quizzes" style="html=1;whiteSpace=wrap;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
           <mxGeometry x="640" y="170" width="110" height="50" as="geometry" />
         </mxCell>
         <mxCell id="RQixRNtty0hlfD8ZV_bc-2" value="Edit Quiz" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
@@ -189,7 +165,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="RQixRNtty0hlfD8ZV_bc-6" value="Quiz Details" style="whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+        <mxCell id="RQixRNtty0hlfD8ZV_bc-6" value="Quiz Details" style="whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
           <mxGeometry x="800" y="260" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="RQixRNtty0hlfD8ZV_bc-8" value="Add Question" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
