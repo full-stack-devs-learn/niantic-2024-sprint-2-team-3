@@ -1,6 +1,6 @@
 # Trivio Quizzlet App
 
-<img src="/images-ReadMe/trivio-home.png" width="400">
+<img src="/images-README/trivio-home.png" width="400">
 
 ## Introduction
 
@@ -18,7 +18,7 @@ This pair programming project was developed by Charletta Harris and Jane Huynh.
 
 ## Features
 
-<img src="/images-ReadMe/take-quiz.png" width="400">
+<img src="/images-README/take-quiz.png" width="400">
 
 ### Take Quiz Page
 
@@ -28,7 +28,7 @@ This pair programming project was developed by Charletta Harris and Jane Huynh.
       display prompting the user to make a selection.
 * Once a user completes the last question, their final results are displayed.
 
-<img src="/images-ReadMe/quiz-management.png" width="400">
+<img src="/images-README/quiz-management.png" width="400">
 
 ### Quiz Management
 
@@ -44,7 +44,7 @@ This pair programming project was developed by Charletta Harris and Jane Huynh.
 * Only live quizzes are displayed on the home page for users to test their knowledge.
 * Pressing the quiz title will navigate to the selected quiz’s details page.
 
-<img src="/images-ReadMe/quiz-details.png" width="400">
+<img src="/images-README/quiz-details.png" width="400">
 ### Quiz Details
 
 * The Quiz Details page displays a list of all the questions associated with a particular quiz.
