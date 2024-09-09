@@ -164,10 +164,12 @@ While we were working through this part of the project, we encountered three obs
 ### Challenge 2: How to Set Boolean Value to Insert into the Database
 
 #### What was the problem?
+
 We were trying to figure out how to bind a boolean from a user’s decision in add/edit quiz if they wanted the quiz to be
 live or not
 
 #### Obstacle 1: Dropdown selections only bind strings as a value defaulting all inputs as false
+
 * Steps:
     * First, we tried having the value set to a boolean value by not wrapping the words in quotation marks. However,
       that still defaulted the value to be false.
@@ -176,31 +178,52 @@ live or not
 * Solution: We changed the dropdown selection to a checkbox.
 
 #### Obstacle 2: We also encountered a problem with the checkbox in which it would cause the webpage to error out.
-* Solution: This was resolved by changing our getter method for the related attribute (isLive) to follow SpringBoot’s getter function name model.
+
+* Solution: This was resolved by changing our getter method for the related attribute (isLive) to follow SpringBoot’s
+  getter function name model.
 
 ## Code We Are Proud Of
 
 ### Charletta Harris
 
-
 ### Jane Huynh
-
 
 ## Retrospective
 
 ### What did you learn from the project?
 
+### Charletta Harris
 
+I learned how more about API's and how to organize data effectively.
+I also learned more about flex boxes and how to improve user experience.
+Overall this project taught me about the overall value of pair programming.
+
+### Jane Huynh
+
+Pacing and Importance of Breaks
+
+* Frustration can cause one to lose focus on the end goal that would result in a negative feedback loop and possibly
+  writing bad code
+*
 
 ### What would you do differently?
 
-
+We would enhance the user experience. The project requirements asked for the navigation of the quiz details page to be
+linked with the quiz title in the quiz management page. We followed the project requirements as instructed, but if
+we had the choice to change this navigation flow we would instead have a button labeled View Questions next to the edit
+button.
 
 ### What would you do the same?
 
-
+* How we structured the quiz page for users to go through the questions is very intuitive.
+* Making navigation easier for users by having back/cancel buttons so they don not have to go through multiple clicks to
+  get back to a certain page.
+* Using API and JavaScript to make page fragments over creating several HTML fragments
 
 ### If you had more time, what else would you add to the project?
+
+* If we had more time, we would have added the add/edit answer functionality.
+* We would have also not allowed white space as an input on client-side validation.
 
 
 
