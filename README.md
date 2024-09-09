@@ -1,5 +1,7 @@
 # Trivio Quizzlet App
 
+<img src="/images-ReadMe/trivio-home.png" width="400">
+
 ## Introduction
 
 Trivio is a Quiz Application that allows users to take a quiz that will display their results at the end and also allows
@@ -13,7 +15,10 @@ ThymeLeaf Java template engine.
 
 This pair programming project was developed by Charletta Harris and Jane Huynh.
 
+
 ## Features
+
+<img src="/images-ReadMe/take-quiz.png" width="400">
 
 ### Take Quiz Page
 
@@ -22,6 +27,8 @@ This pair programming project was developed by Charletta Harris and Jane Huynh.
     * A user will not be able to move on to the next question until an answer is chosen or else a warning message will
       display prompting the user to make a selection.
 * Once a user completes the last question, their final results are displayed.
+
+<img src="/images-ReadMe/quiz-management.png" width="400">
 
 ### Quiz Management
 
@@ -37,6 +44,7 @@ This pair programming project was developed by Charletta Harris and Jane Huynh.
 * Only live quizzes are displayed on the home page for users to test their knowledge.
 * Pressing the quiz title will navigate to the selected quiz’s details page.
 
+<img src="/images-ReadMe/quiz-details.png" width="400">
 ### Quiz Details
 
 * The Quiz Details page displays a list of all the questions associated with a particular quiz.
@@ -102,8 +110,13 @@ below sections;
 
 These sections helped break down the project into manageable steps to complete.
 
-### Design
 
+
+<img src="/images-ReadMe/dao-diagram.png" width="400">
+<img src="/images-ReadMe/database-diagram.png" width="400">
+<img src="/images-ReadMe/webflow-diagram.png" width="400">
+
+### Design
 We designed our project web flow, controller and DAO through diagramming before the start of the project for an idea of
 how we might go about the coding process. As we went further along the project, we added more to our diagrams based on
 any new features that were added.
