@@ -14,13 +14,13 @@
         </div>
 
 
-        <table class="table table-striped">
+        <table class="table table-hover">
             <thead class="table-dark">
                 <th>Quiz Title</th>
                 <th>Live</th>
                 <th></th>
             </thead>
-            <tbody>
+            <tbody class="table-light">
                 <tr th:each="quiz:${quizzes}">
                     <th><a th:text="${quiz.title}" th:href="@{|/quiz/${quiz.quizId}/details|}"></a></th>
                     <td th:text="${quiz.isLive}"></td>

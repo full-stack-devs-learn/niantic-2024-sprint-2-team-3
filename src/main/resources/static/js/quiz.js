@@ -18,7 +18,15 @@ document.addEventListener("DOMContentLoaded", () => {
     button = document.getElementById("quiz-button");
     submitError = document.createElement("p");
 
-    loadStart();
+    // change questionTotal based on amount of questions in quiz
+        fetch(`/api/quiz/${quizId}/questionCount`)
+            .then(response => response.text())
+            .then(data => {
+                questionTotal = +data;
+                pageTotal = questionTotal + 1;
+
+                loadStart();
+            });
 
     // button event
     button.addEventListener("click", () => {
@@ -26,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
             loadQuestion();
         }
-        else if (startPage || pageTotal)
+        else if (startPage || questionPage === 1)
         {
             loadStart();
         }
@@ -42,13 +50,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     })
 
-    // change questionTotal based on amount of questions in quiz
-    fetch(`/api/quiz/${quizId}/questionCount`)
-        .then(response => response.text())
-        .then(data => {
-            questionTotal = +data;
-            pageTotal = questionTotal + 1;
-        });
 });
 
 function loadQuestion()
@@ -147,6 +148,8 @@ function loadResults()
     container.appendChild(result);
 
     button.textContent = "Retake Quiz";
+
+    startPage = true;
 }
 
 function displayQuestion(data, container)

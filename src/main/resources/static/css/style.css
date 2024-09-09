@@ -1,3 +1,11 @@
 h1, h4, a, p {
     text-align: center;
 }
+
+h1 {
+    font-weight:bold;
+}
+
+a {
+    text-decoration: none;
+}
