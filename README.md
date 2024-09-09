@@ -251,7 +251,7 @@ live or not
 
 ### Charletta Harris
 I am really proud of the code block below. It pulls data using the DAO and the best part is
-seeing it displayed on the webpage.This code helped structure the page, and I had to use a
+seeing it displayed on the webpage.This code helped structure the page, and we had to use a
 QuestionDAO with a GetMapping to make it all work. 
 
 
