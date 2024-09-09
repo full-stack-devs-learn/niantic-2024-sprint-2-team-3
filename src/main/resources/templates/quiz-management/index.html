@@ -9,20 +9,22 @@
 
     <main class="container mt-4">
         <h1>Quiz Management</h1>
+        <div class="d-flex justify-content-center">
+            <a class="btn btn-success mb-4 text-center" th:href="@{|/quiz/add|}">Add Quiz</a>
+        </div>
 
-        <a class="btn btn-success mt-4 mb-4" th:href="@{|/quiz/add|}">Add</a>
 
         <table class="table table-striped">
             <thead class="table-dark">
                 <th>Quiz Title</th>
                 <th>Live</th>
-                <th>Edit Quiz</th>
+                <th></th>
             </thead>
             <tbody>
                 <tr th:each="quiz:${quizzes}">
                     <th><a th:text="${quiz.title}" th:href="@{|/quiz/${quiz.quizId}/details|}"></a></th>
                     <td th:text="${quiz.isLive}"></td>
-                    <td><a th:href="@{|/quiz/${quiz.quizId}/edit|}" class="btn btn-warning">Edit</a></td>
+                    <td><a th:href="@{|/quiz/${quiz.quizId}/edit|}" class="btn btn-warning">Edit Quiz</a></td>
                 </tr>
             </tbody>
         </table>

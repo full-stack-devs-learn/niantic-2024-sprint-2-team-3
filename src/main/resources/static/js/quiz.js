@@ -2,13 +2,15 @@ let questionPage = 1;
 let questionTotal = 1;
 let pageTotal = 1;
 let firstQuestion = true;
-let correctTracker=0;
+let correctTracker = 0;
+let startPage = false;
 
 let quizId;
 let questionId;
 let container;
 let button;
 let submitError;
+let form;
 
 document.addEventListener("DOMContentLoaded", () => {
     container = document.getElementById("question-container");
@@ -16,11 +18,17 @@ document.addEventListener("DOMContentLoaded", () => {
     button = document.getElementById("quiz-button");
     submitError = document.createElement("p");
 
+    loadStart();
+
     // button event
     button.addEventListener("click", () => {
         if (firstQuestion || checkAnswer())
         {
             loadQuestion();
+        }
+        else if (startPage || pageTotal)
+        {
+            loadStart();
         }
         else
         {
@@ -90,12 +98,38 @@ function loadAnswers()
     fetch(url)
     .then(response => {return response.json()})
     .then(data =>{
+        let div = document.createElement("div");
+        form = document.createElement("div");
+        div.classList.add("d-flex");
+        div.classList.add("justify-content-center");
 
-    data.forEach(answer=>displayAnswers(answer,container))
+        data.forEach(answer=>displayAnswers(answer,container));
+        div.appendChild(form);
+        container.appendChild(div);
+
 
     })
 
 
+}
+
+function loadStart()
+{
+    startPage = false;
+    firstQuestion = true;
+    questionPage = 1;
+
+    container.innerHTML = "";
+    let instruction = document.createElement("p");
+    let numberQ = document.createElement("p");
+
+    numberQ.textContent = "Number of Questions: " + questionTotal;
+    instruction.textContent = "Once you select an answer and press Next, you are unable to change your answer. Think carefully before you go to the next question!";
+
+    button.textContent = "Start";
+
+    container.appendChild(numberQ);
+    container.appendChild(instruction);
 }
 
 function loadResults()
@@ -112,7 +146,7 @@ function loadResults()
     container.appendChild(fraction);
     container.appendChild(result);
 
-    button.remove()
+    button.textContent = "Retake Quiz";
 }
 
 function displayQuestion(data, container)
@@ -144,8 +178,8 @@ function displayAnswers(data, container)
 
     div.appendChild(input);
     div.appendChild(label);
+    form.appendChild(div);
 
-    container.appendChild(div);
 }
 
  function checkAnswer()

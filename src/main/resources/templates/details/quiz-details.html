@@ -10,20 +10,22 @@
 <div class="container mt-4">
     <h4>Quiz <span id="quiz-id" th:text="${quiz.quizId}"></span></h4>
     <h1 th:text="${quiz.title}"></h1>
-
-    <a th:href="@{|/quiz/${quiz.quizId}/question/add|}" class="btn btn-success mb-4">ADD</a>
+    <div class="d-flex justify-content-center">
+        <a th:href="@{|/quiz/${quiz.quizId}/question/add|}" class="btn btn-success mb-4">Add Question</a>
+        <a th:href="@{|/quizzes|}" class="btn btn-info mb-4">All Quizzes</a>
+    </div>
 
     <table class="table table-striped">
         <thead class="table-dark">
             <th>Number</th>
             <th>Question</th>
-            <th>Edit Question</th>
+            <th></th>
         </thead>
         <tbody>
         <tr th:each="question:${questions}">
             <td th:text="${question.questionNumber}"></td>
             <th th:text="${question.questionText}"></th>
-            <td><a th:href="@{|/quiz/${quiz.quizId}/${question.questionId}/edit|}" class="btn btn-warning">Edit</a></td>
+            <td><a th:href="@{|/quiz/${quiz.quizId}/${question.questionId}/edit|}" class="btn btn-warning">Edit Question</a></td>
         </tr>
         </tbody>
 
