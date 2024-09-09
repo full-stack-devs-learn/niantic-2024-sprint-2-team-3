@@ -18,6 +18,14 @@ document.addEventListener("DOMContentLoaded", () => {
     button = document.getElementById("quiz-button");
     submitError = document.createElement("p");
 
+    container.classList.add("card");
+    container.classList.add("bg-info");
+    container.classList.add("text-white");
+    container.classList.add("mb-3");
+    container.classList.add("mt-3");
+    container.style.width = "50vw";
+    container.style.padding = "25px";
+
     // change questionTotal based on amount of questions in quiz
         fetch(`/api/quiz/${quizId}/questionCount`)
             .then(response => response.text())
@@ -104,7 +112,7 @@ function loadAnswers()
         div.classList.add("d-flex");
         div.classList.add("justify-content-center");
 
-        data.forEach(answer=>displayAnswers(answer,container));
+        data.forEach(answer => displayAnswers(answer, container));
         div.appendChild(form);
         container.appendChild(div);
 
@@ -119,6 +127,7 @@ function loadStart()
     startPage = false;
     firstQuestion = true;
     questionPage = 1;
+    correctTracker = 0;
 
     container.innerHTML = "";
     let instruction = document.createElement("p");
@@ -128,9 +137,10 @@ function loadStart()
     instruction.textContent = "Once you select an answer and press Next, you are unable to change your answer. Think carefully before you go to the next question!";
     button.textContent = "Start";
 
-    numberQ.style.color = '#17a2b8';
-    numberQ.style.fontSize = "18px";
+    numberQ.style.fontSize = "22px";
+    instruction.style.fontSize = "20px";
 
+    numberQ.classList.add("text-warning");
     numberQ.classList.add("mt-4");
     instruction.classList.add("mb-5");
 
@@ -153,6 +163,7 @@ function loadResults()
     title.classList.add("mt-4");
     fraction.classList.add("mt-4");
     fraction.classList.add("mb-4");
+    fraction.classList.add("text-warning");
     result.classList.add("mb-4");
 
     container.appendChild(title);
