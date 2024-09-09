@@ -126,8 +126,13 @@ function loadStart()
 
     numberQ.textContent = "Number of Questions: " + questionTotal;
     instruction.textContent = "Once you select an answer and press Next, you are unable to change your answer. Think carefully before you go to the next question!";
-
     button.textContent = "Start";
+
+    numberQ.style.color = '#17a2b8';
+    numberQ.style.fontSize = "18px";
+
+    numberQ.classList.add("mt-4");
+    instruction.classList.add("mb-5");
 
     container.appendChild(numberQ);
     container.appendChild(instruction);
@@ -137,11 +142,18 @@ function loadResults()
 {
     let title = document.createElement("h4");
     let result = document.createElement("p");
-    let fraction = document.createElement("p");
+    let fraction = document.createElement("h3");
 
     title.textContent = "Results";
     fraction.textContent = correctTracker + '/' + questionTotal;
     result.textContent = "You got " + correctTracker + " correct!";
+
+    fraction.style.color = '#17a2b8';
+
+    title.classList.add("mt-4");
+    fraction.classList.add("mt-4");
+    fraction.classList.add("mb-4");
+    result.classList.add("mb-4");
 
     container.appendChild(title);
     container.appendChild(fraction);
@@ -157,6 +169,8 @@ function displayQuestion(data, container)
     let question = document.createElement("h4");
 
     question.textContent = "Question " + data.questionNumber + ": " + data.questionText;
+    question.classList.add("mt-4");
+    question.style.fontSize = "28px";
 
     container.appendChild(question);
 }
@@ -175,7 +189,12 @@ function displayAnswers(data, container)
     label.htmlFor = data.answerId.toString();
     label.textContent = data.answerText;
 
+    label.style.fontSize = "19px";
+
+    form.classList.add("mb-4");
+    form.classList.add("mt-3");
     div.classList.add("form-check");
+    div.classList.add("mb-3");
     input.classList.add("form-check-input");
     label.classList.add("form-check-label");
 
@@ -188,7 +207,7 @@ function displayAnswers(data, container)
  function checkAnswer()
  {
     let chosen = false;
-    const answers = document.getElementsByName("answer")
+    const answers = document.getElementsByName("answer");
 
     answers.forEach(answer => {
         if (answer.checked)

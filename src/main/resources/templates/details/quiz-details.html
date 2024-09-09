@@ -25,7 +25,10 @@
         <tr th:each="question:${questions}">
             <td th:text="${question.questionNumber}"></td>
             <th><a th:href="@{|/quiz/${quiz.quizId}/${question.questionId}/details|}" th:text="${question.questionText}"></a></th>
-            <td><a th:href="@{|/quiz/${quiz.quizId}/${question.questionId}/edit|}" class="btn btn-warning">Edit Question</a></td>
+            <td style="text-align: right;">
+                <a th:href="@{|/quiz/${quiz.quizId}/${question.questionId}/details|}" class="btn btn-info">View Answers</a>
+                <a th:href="@{|/quiz/${quiz.quizId}/${question.questionId}/edit|}" class="btn btn-warning">Edit Question</a>
+            </td>
         </tr>
         </tbody>
 

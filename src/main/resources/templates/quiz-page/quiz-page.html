@@ -6,18 +6,19 @@
 <body>
     <script src="/js/quiz.js"></script>
     <div th:replace="fragments/navigation :: nav"></div>
-    <main class="container mt-4">
+    <main class="container d-flex align-items-center justify-content-center" style="min-height: 70vh;">
+        <div>
+            <h4>Quiz <span id="quiz-id" th:text="${quiz.quizId}"></span></h4>
+            <h1 th:text="${quiz.title}"></h1>
 
-    <h4>Quiz <span id="quiz-id" th:text="${quiz.quizId}"></span></h4>
-    <h1 th:text="${quiz.title}"></h1>
+            <div id="question-container">
 
-    <div id="question-container">
+            </div>
 
-    </div>
-
-    <div class="d-flex justify-content-center">
-        <a id="quiz-button" class="btn btn-success">Start</a>
-    </div>
+            <div class="d-flex justify-content-center">
+                <a id="quiz-button" class="btn btn-success">Start</a>
+            </div>
+        </div>
     </main>
 </body>
 </html>

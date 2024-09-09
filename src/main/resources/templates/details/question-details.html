@@ -26,7 +26,9 @@
         <tr th:each="answer:${answers}">
             <td th:text="${answer.answerText}"></td>
             <th th:text="${answer.isCorrect}"></th>
-            <td><a th:href="@{|/|}" class="btn btn-warning">Edit Answer</a></td>
+            <td style="text-align: right;">
+                <a th:href="@{|/|}" class="btn btn-warning">Edit Answer</a>
+            </td>
         </tr>
         </tbody>
 

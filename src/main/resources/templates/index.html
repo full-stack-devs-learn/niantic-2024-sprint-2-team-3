@@ -10,13 +10,13 @@
 <div class="container mt-4">
 
     <div class="d-flex justify-content-center mt-4">
-        <img class="mb-4" src="/images/home-img.png" width="60%" style="margin:auto;"/>
+        <img class="mt-4 mb-4" src="/images/home-img.png" width="75%" style="margin: auto;"/>
     </div>
 
     <h4 class="mb-4">Select a quiz you would like to test your knowledge on.</h4>
 
-    <div th:if="${quiz.isLive}" class="card text-white bg-warning mb-2" th:each="quiz:${quizzes}" style="width: 60%; margin: auto;">
-        <div class="card-header text-center"><strong><a th:text="${quiz.title}" th:href="@{|/quiz/${quiz.quizId}|}" style="color: white;"></a></strong></div>
+    <div th:if="${quiz.isLive}" class="card text-white bg-warning mb-2" th:each="quiz:${quizzes}" style="width: 75%; margin: auto;">
+        <div class="card-header text-center"><strong><a th:text="${quiz.title}" th:href="@{|/quiz/${quiz.quizId}|}" style="font-size: 20px;"></a></strong></div>
     </div>
 </div>
 
