@@ -250,8 +250,10 @@ live or not
 ## Code We Are Proud Of
 
 ### Charletta Harris
+I am really proud of the code block below. It pulls data using the DAO and the best part is
+seeing it displayed on the webpage.This code helped structure the page, and I had to use a
+QuestionDAO with a GetMapping to make it all work. 
 
-Explanation Here
 
 ```html
 <table class="table table-hover">
@@ -329,9 +331,10 @@ function loadQuestion()
 
 #### Charletta Harris
 
-I learned how more about API's and how to organize data effectively.
-I also learned more about flex boxes and how to improve user experience.
-Overall this project taught me about the overall value of pair programming.
+* Gained a deeper understanding of how API's work including how to request and retrieve data. 
+* Flexbox and how to improve the overall user experience by optimizing the visual structure to make it intuitive.
+* Overall this project taught me about the overall value of pair programming.
+
 
 #### Jane Huynh
 
