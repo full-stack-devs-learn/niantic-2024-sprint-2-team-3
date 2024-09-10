@@ -12,7 +12,7 @@
     <h1 th:text="${question.questionText}"></h1>
 
     <div class="d-flex justify-content-center">
-        <a th:href="@{|/|}" class="btn btn-success mb-4">Add Answer</a>
+        <a th:href="@{|/|}" class="btn btn-success mb-4">+ Add Answer</a>
         <a th:href="@{|/quiz/${quiz.quizId}/details|}" class="btn btn-info mb-4">All Questions</a>
     </div>
 
@@ -24,10 +24,10 @@
         </thead>
         <tbody class="table-light">
         <tr th:each="answer:${answers}">
-            <td th:text="${answer.answerText}"></td>
-            <th th:text="${answer.isCorrect}"></th>
+            <th th:text="${answer.answerText}" style="font-size: 18px;"></th>
+            <td th:text="${answer.isCorrect ? '✓ Correct' : '✗ Incorrect'}" th:style="${answer.isCorrect ? 'color: green;' : 'color: red;'}"></td>
             <td style="text-align: right;">
-                <a th:href="@{|/|}" class="btn btn-warning">Edit Answer</a>
+                <a th:href="@{|/|}" class="btn btn-warning">&#9998; Edit Answer</a>
             </td>
         </tr>
         </tbody>

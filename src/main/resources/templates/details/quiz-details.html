@@ -11,7 +11,7 @@
     <h4>Quiz <span id="quiz-id" th:text="${quiz.quizId}"></span></h4>
     <h1 th:text="${quiz.title}"></h1>
     <div class="d-flex justify-content-center">
-        <a th:href="@{|/quiz/${quiz.quizId}/question/add|}" class="btn btn-success mb-4">Add Question</a>
+        <a th:href="@{|/quiz/${quiz.quizId}/question/add|}" class="btn btn-success mb-4">+ Add Question</a>
         <a th:href="@{|/quizzes|}" class="btn btn-info mb-4">All Quizzes</a>
     </div>
 
@@ -24,10 +24,10 @@
         <tbody class="table-light">
         <tr th:each="question:${questions}">
             <td th:text="${question.questionNumber}"></td>
-            <th><a th:href="@{|/quiz/${quiz.quizId}/${question.questionId}/details|}" th:text="${question.questionText}"></a></th>
+            <th><a th:href="@{|/quiz/${quiz.quizId}/${question.questionId}/details|}" th:text="${question.questionText}" style="font-size: 18px;"></a></th>
             <td style="text-align: right;">
                 <a th:href="@{|/quiz/${quiz.quizId}/${question.questionId}/details|}" class="btn btn-info">View Answers</a>
-                <a th:href="@{|/quiz/${quiz.quizId}/${question.questionId}/edit|}" class="btn btn-warning">Edit Question</a>
+                <a th:href="@{|/quiz/${quiz.quizId}/${question.questionId}/edit|}" class="btn btn-warning">&#9998; Edit Question</a>
             </td>
         </tr>
         </tbody>

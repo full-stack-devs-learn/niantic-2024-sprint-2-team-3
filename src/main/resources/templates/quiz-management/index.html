@@ -10,7 +10,7 @@
     <main class="container mt-4">
         <h1>Quiz Management</h1>
         <div class="d-flex justify-content-center">
-            <a class="btn btn-success mb-4 text-center" th:href="@{|/quiz/add|}">Add Quiz</a>
+            <a class="btn btn-success mb-4 text-center" th:href="@{|/quiz/add|}">+ Add Quiz</a>
         </div>
 
 
@@ -22,11 +22,11 @@
             </thead>
             <tbody class="table-light">
                 <tr th:each="quiz:${quizzes}">
-                    <th><a th:text="${quiz.title}" th:href="@{|/quiz/${quiz.quizId}/details|}"></a></th>
-                    <td th:text="${quiz.isLive}"></td>
+                    <th><a th:text="${quiz.title}" th:href="@{|/quiz/${quiz.quizId}/details|}" style="font-size: 20px;"></a></th>
+                    <td th:text="${quiz.isLive ? '◉ Live' : '○ Not Live'}" th:style="${quiz.isLive ? 'color: green;' : 'color: red;'}"></td>
                     <td style="text-align: right;">
                         <a th:href="@{|/quiz/${quiz.quizId}/details|}" class="btn btn-info">View Questions</a>
-                        <a th:href="@{|/quiz/${quiz.quizId}/edit|}" class="btn btn-warning">Edit Quiz</a>
+                        <a th:href="@{|/quiz/${quiz.quizId}/edit|}" class="btn btn-warning">&#9998; Edit Quiz</a>
                     </td>
                 </tr>
             </tbody>

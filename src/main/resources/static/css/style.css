@@ -14,3 +14,15 @@ table {
     border-collapse: collapse;
     border: 5px solid #000000;
 }
+
+#take-quiz-card:hover {
+    background-color: #ff9b14;
+}
+
+#take-quiz-card-text:hover {
+    color: #ffffff;
+}
+
+.answer-choice:hover {
+    color: #ffc107;
+}

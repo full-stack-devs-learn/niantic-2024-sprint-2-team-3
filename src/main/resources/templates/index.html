@@ -16,7 +16,7 @@
     <h4 class="mb-4">Select a quiz you would like to test your knowledge on.</h4>
 
     <div th:if="${quiz.isLive}" class="card text-white bg-warning mb-2" th:each="quiz:${quizzes}" style="width: 75%; margin: auto;">
-        <div class="card-header text-center"><strong><a th:text="${quiz.title}" th:href="@{|/quiz/${quiz.quizId}|}" style="font-size: 20px;"></a></strong></div>
+        <div id="take-quiz-card" class="card-header text-center"><strong><a id="take-quiz-card-text" th:text="${quiz.title}" th:href="@{|/quiz/${quiz.quizId}|}" style="font-size: 20px;"></a></strong></div>
     </div>
 </div>
 

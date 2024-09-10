@@ -159,6 +159,7 @@ function loadResults()
     result.textContent = "You got " + correctTracker + " correct!";
 
     fraction.style.color = '#17a2b8';
+    fraction.style.fontSize = "84px";
 
     title.classList.add("mt-4");
     fraction.classList.add("mt-4");
@@ -199,13 +200,14 @@ function displayAnswers(data, container)
 
     label.htmlFor = data.answerId.toString();
     label.textContent = data.answerText;
-
     label.style.fontSize = "19px";
+
 
     form.classList.add("mb-4");
     form.classList.add("mt-3");
     div.classList.add("form-check");
     div.classList.add("mb-3");
+    div.classList.add("answer-choice");
     input.classList.add("form-check-input");
     label.classList.add("form-check-label");
 
