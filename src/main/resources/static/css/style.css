@@ -26,3 +26,7 @@ table {
 .answer-choice:hover {
     color: #ffc107;
 }
+
+td, th {
+    vertical-align: middle;
+}

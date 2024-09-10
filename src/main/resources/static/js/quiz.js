@@ -4,6 +4,7 @@ let pageTotal = 1;
 let firstQuestion = true;
 let correctTracker = 0;
 let startPage = false;
+let questionTracker = 1;
 
 let quizId;
 let questionId;
@@ -57,7 +58,6 @@ document.addEventListener("DOMContentLoaded", () => {
             container.appendChild(submitError);
         }
     })
-
 });
 
 function loadQuestion()
@@ -93,6 +93,7 @@ function loadQuestion()
         questionId = data.questionId;
 
         displayQuestion(data, container);
+        questionTracker++;
 
         loadAnswers();
     })
@@ -115,11 +116,7 @@ function loadAnswers()
         data.forEach(answer => displayAnswers(answer, container));
         div.appendChild(form);
         container.appendChild(div);
-
-
     })
-
-
 }
 
 function loadStart()
@@ -128,6 +125,7 @@ function loadStart()
     firstQuestion = true;
     questionPage = 1;
     correctTracker = 0;
+    questionTracker = 1;
 
     container.innerHTML = "";
     let instruction = document.createElement("p");
@@ -178,12 +176,20 @@ function loadResults()
 
 function displayQuestion(data, container)
 {
+    let numQuestHeader = document.createElement("div");
     let question = document.createElement("h4");
+    numQuestHeader.textContent = "Question " + questionTracker + " / " + questionTotal;
+    numQuestHeader.style.textAlign = "center";
+    numQuestHeader.style.color = '#000000';
+    numQuestHeader.style.backgroundColor = '#17a2b8';
 
-    question.textContent = "Question " + data.questionNumber + ": " + data.questionText;
-    question.classList.add("mt-4");
+    question.textContent = data.questionText;
     question.style.fontSize = "28px";
 
+    numQuestHeader.classList.add("card-header");
+    question.classList.add("mt-5");
+
+    container.appendChild(numQuestHeader);
     container.appendChild(question);
 }
 
@@ -214,7 +220,6 @@ function displayAnswers(data, container)
     div.appendChild(input);
     div.appendChild(label);
     form.appendChild(div);
-
 }
 
  function checkAnswer()
@@ -234,5 +239,4 @@ function displayAnswers(data, container)
     })
 
     return chosen;
-
  }
