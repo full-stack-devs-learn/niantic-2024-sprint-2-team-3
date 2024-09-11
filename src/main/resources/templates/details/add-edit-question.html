@@ -7,11 +7,11 @@
 <div th:replace="fragments/navigation :: nav"></div>
 
 <main class="container mt-4">
-    <h4>Quiz : <span th:text="${quiz.title}"></span></h4>
+    <h4 class="mt-5">Quiz : <span th:text="${quiz.title}"></span></h4>
     <h1 th:if="${action} == 'add'">Add Question</h1>
     <h1 th:if="${action} == 'edit'">Edit Question</h1>
 
-    <form method="post" th:object="${question}">
+    <form method="post" th:object="${question}" class="mt-5">
         <div class="form-floating mb-3">
             <select th:field="*{quizId}" class="form-select">
                 <option th:each="quiz:${quizzes}" th:value="${quiz.quizId}" th:text="${quiz.title}"></option>
@@ -26,7 +26,7 @@
             <input class="form-control" type="text" th:field="*{questionText}" placeholder="Question Text">
             <label th:for="*{questionText}">Question Text</label>
         </div>
-        <div>
+        <div class="mt-4">
             <input type="submit" class="btn btn-success" value="Submit">
             <a class="btn btn-info" th:href="@{|/quiz/${quiz.quizId}/details|}">Cancel</a>
         </div>

@@ -6,12 +6,12 @@
 <body>
 <div th:replace="fragments/navigation :: nav"></div>
 
-<main class="container mt-5">
-    <h4>Question : <span th:text="${question.questionText}"></span></h4>
+<main class="container mt-4">
+    <h4 class="mt-5">Question : <span th:text="${question.questionText}"></span></h4>
     <h1 th:if="${action} == 'add'">Add Answer</h1>
     <h1 th:if="${action} == 'edit'">Edit Answer</h1>
 
-    <form method="post" th:object="${answer}">
+    <form method="post" th:object="${answer}" class="mt-5">
         <div class="form-floating mb-3">
             <select th:field="*{questionId}" class="form-select">
                 <option th:each="question:${questions}" th:value="${question.questionId}" th:text="${question.questionText}"></option>
@@ -26,7 +26,7 @@
             <input type="checkbox" th:field="*{isCorrect}" class="form-check-input">
             <label th:for="*{isCorrect}">Is this the CORRECT answer?</label>
         </div>
-        <div>
+        <div class="mt-4">
             <input type="submit" class="btn btn-success" value="Submit">
             <a class="btn btn-info" th:href="@{|/quiz/${quizId}/${questionId}/details|}">Cancel</a>
         </div>

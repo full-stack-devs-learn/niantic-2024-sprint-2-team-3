@@ -201,8 +201,8 @@ function displayAnswers(data, container)
 
     input.setAttribute('id', data.answerId.toString());
     input.type = "radio";
-    input.name="answer";
-    input.value = data.correct.toString();
+    input.name = "answer";
+    input.value = data.isCorrect.toString();
 
     label.htmlFor = data.answerId.toString();
     label.textContent = data.answerText;
