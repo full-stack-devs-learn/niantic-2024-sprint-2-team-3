@@ -22,9 +22,10 @@ public class QuizManagementController
     @GetMapping("/quizzes")
     public String getQuizzes(Model model)
     {
-        var quizzes = quizDao.getAllQuizzes();
+        var quizzes = quizDao.sortLiveQuiz();
 
         model.addAttribute("quizzes", quizzes);
+        model.addAttribute("title", "Quiz Management");
 
         return "quiz-management/index";
     }
@@ -34,6 +35,7 @@ public class QuizManagementController
     {
         model.addAttribute("quiz", new Quiz());
         model.addAttribute("action", "add");
+        model.addAttribute("title", "Add Quiz");
 
         return "quiz-management/add-edit-quiz";
     }
@@ -60,6 +62,7 @@ public class QuizManagementController
 
         model.addAttribute("quiz", quiz);
         model.addAttribute("action", "edit");
+        model.addAttribute("title", "Edit Quiz");
 
         return "quiz-management/add-edit-quiz";
     }

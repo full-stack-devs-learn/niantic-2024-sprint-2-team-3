@@ -9,21 +9,21 @@
 
 <main class="container mt-4">
 
-    <h1 th:if="${action} == 'add'">Add Quiz</h1>
-    <h1 th:if="${action} == 'edit'">Edit Quiz</h1>
+    <h1 th:if="${action} == 'add'" class="mt-5">Add Quiz</h1>
+    <h1 th:if="${action} == 'edit'" class="mt-5">Edit Quiz</h1>
 
-    <form id="add-quiz" method="post" th:object="${quiz}" novalidate>
+    <form id="add-quiz" method="post" th:object="${quiz}" novalidate class="mt-5">
         <div class="form-floating mb-3">
             <input id="title" type="text" th:field="*{title}" placeholder="Title" class="form-control" required>
             <label th:for="*{title}">Title</label>
             <div class="invalid-feedback">Quiz title is required.</div>
             <div class="valid-feedback">Oh great Quiz title!</div>
         </div>
-        <div class="form-check mb-3">
+        <div class="form-check" style="margin-top: 30px;">
             <input type="checkbox" th:field="*{isLive}" class="form-check-input">
             <label th:for="*{isLive}">Make Quiz LIVE?</label>
         </div>
-        <div>
+        <div class="mt-4">
             <input type="submit" class="btn btn-success" value="Submit">
             <a class="btn btn-info" th:href="@{|/quizzes|}">Cancel</a>
         </div>

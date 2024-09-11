@@ -50,6 +50,29 @@ public class QuizDao
         return quizzes;
     }
 
+    public List<Quiz> sortLiveQuiz()
+    {
+        List<Quiz> sortedQuizzes = new ArrayList<>();
+
+        String sql = """
+                SELECT quiz_id
+                    , quiz_title
+                    , is_live
+                FROM quiz
+                ORDER BY is_live DESC;
+                """;
+
+        var row = jdbcTemplate.queryForRowSet(sql);
+
+        while (row.next())
+        {
+            var quiz = mapRowToQuiz(row);
+            sortedQuizzes.add(quiz);
+        }
+
+        return sortedQuizzes;
+    }
+
     public Quiz getQuizById(int id)
     {
         Quiz quiz = null;

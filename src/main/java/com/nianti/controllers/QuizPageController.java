@@ -18,6 +18,7 @@ public class QuizPageController {
         Quiz quiz = quizDao.getQuizById(quizId);
 
         model.addAttribute("quiz", quiz);
+        model.addAttribute("title", String.format("Take Quiz: %s", quiz.getTitle()));
 
         return "quiz-page/quiz-page";
     }

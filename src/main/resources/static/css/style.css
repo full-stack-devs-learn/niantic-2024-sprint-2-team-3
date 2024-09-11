@@ -30,3 +30,13 @@ table {
 td, th {
     vertical-align: middle;
 }
+
+.btn:hover {
+    background-color: transparent;
+    color: #000000;
+    border-color: #000000;
+}
+
+tr > th:hover {
+    color: #
+}

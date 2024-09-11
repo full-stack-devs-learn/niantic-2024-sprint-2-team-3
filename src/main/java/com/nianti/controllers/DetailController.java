@@ -29,7 +29,8 @@ public class DetailController
         List<Question> questions = questionDao.getQuestionByQuizId(quizId);
 
         model.addAttribute("quiz", quiz);
-        model.addAttribute("questions",questions);
+        model.addAttribute("questions", questions);
+        model.addAttribute("title", String.format("Details: %s", quiz.getTitle()));
 
         return "details/quiz-details";
     }
@@ -44,6 +45,7 @@ public class DetailController
         model.addAttribute("quiz", quiz);
         model.addAttribute("quizzes", quizzes);
         model.addAttribute("action", "add");
+        model.addAttribute("title", "Add Question");
 
         return "details/add-edit-question";
     }
@@ -66,6 +68,7 @@ public class DetailController
         model.addAttribute("quizzes", quizzes);
         model.addAttribute("question", question);
         model.addAttribute("action", "edit");
+        model.addAttribute("title", "Edit Question");
 
         return "details/add-edit-question";
     }
@@ -89,6 +92,7 @@ public class DetailController
         model.addAttribute("quiz", quiz);
         model.addAttribute("question", question);
         model.addAttribute("answers", answers);
+        model.addAttribute("title", String.format("Question Details: %s", quiz.getTitle()));
 
         return "details/question-details";
     }
