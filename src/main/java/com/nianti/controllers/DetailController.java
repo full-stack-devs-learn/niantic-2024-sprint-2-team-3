@@ -96,4 +96,54 @@ public class DetailController
 
         return "details/question-details";
     }
+
+    @GetMapping("/quiz/{quizId}/{questionId}/answer/add")
+    public String addAnswer(Model model, @PathVariable int quizId, @PathVariable int questionId)
+    {
+        Question question = questionDao.getQuestionById(questionId);
+        List<Question> questions = questionDao.getQuestionByQuizId(quizId);
+
+        model.addAttribute("answer", new Answer());
+        model.addAttribute("question", question);
+        model.addAttribute("questions", questions);
+        model.addAttribute("quizId", quizId);
+        model.addAttribute("action", "add");
+        model.addAttribute("title", "Add Answer");
+
+        return "details/add-edit-answer";
+    }
+
+    @PostMapping("/quiz/{quizId}/{questionId}/answer/add")
+    public String addQuestion(@ModelAttribute("answer") Answer answer, @PathVariable int quizId, @PathVariable int questionId)
+    {
+        answerDao.addAnswer(answer);
+
+        return "redirect:/quiz/" + quizId + "/" + questionId + "/details";
+    }
+
+    @GetMapping("/quiz/{quizId}/{questionId}/{answerId}/edit")
+    public String updateAnswer(Model model, @PathVariable int quizId, @PathVariable int questionId, @PathVariable int answerId)
+    {
+        Answer answer = answerDao.getAnswerById(answerId);
+        Question question = questionDao.getQuestionById(questionId);
+        List<Question> questions = questionDao.getQuestionByQuizId(quizId);
+
+        model.addAttribute("answer", answer);
+        model.addAttribute("question", question);
+        model.addAttribute("questions", questions);
+        model.addAttribute("quizId", quizId);
+        model.addAttribute("action", "edit");
+        model.addAttribute("title", "Edit Answer");
+
+        return "details/add-edit-answer";
+    }
+
+    @PostMapping ("/quiz/{quizId}/{questionId}/{answerId}/edit")
+    public String updateAnswer(@ModelAttribute("answer") Answer answer, @PathVariable int quizId, @PathVariable int questionId, @PathVariable int answerId)
+    {
+        answer.setAnswerId(answerId);
+        answerDao.editAnswer(answer);
+
+        return "redirect:/quiz/" + quizId + "/" + questionId + "/details";
+    }
 }

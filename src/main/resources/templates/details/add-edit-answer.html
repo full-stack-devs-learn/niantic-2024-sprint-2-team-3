@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<div th:replace="fragments/head :: head"></div>
+
+<body>
+<div th:replace="fragments/navigation :: nav"></div>
+
+<main class="container mt-5">
+    <h4>Question : <span th:text="${question.questionText}"></span></h4>
+    <h1 th:if="${action} == 'add'">Add Answer</h1>
+    <h1 th:if="${action} == 'edit'">Edit Answer</h1>
+
+    <form method="post" th:object="${answer}">
+        <div class="form-floating mb-3">
+            <select th:field="*{questionId}" class="form-select">
+                <option th:each="question:${questions}" th:value="${question.questionId}" th:text="${question.questionText}"></option>
+            </select>
+            <label th:for="*{questionId}">Choose Question</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input class="form-control" th:field="*{answerText}" placeholder="Answer Text">
+            <label th:for="*{answerText}">Answer Text</label>
+        </div>
+        <div class="form-check" style="margin-top: 30px;">
+            <input type="checkbox" th:field="*{isCorrect}" class="form-check-input">
+            <label th:for="*{isCorrect}">Is this the CORRECT answer?</label>
+        </div>
+        <div>
+            <input type="submit" class="btn btn-success" value="Submit">
+            <a class="btn btn-info" th:href="@{|/quiz/${quizId}/${questionId}/details|}">Cancel</a>
+        </div>
+    </form>
+</main>
+
+</body>
+</html>

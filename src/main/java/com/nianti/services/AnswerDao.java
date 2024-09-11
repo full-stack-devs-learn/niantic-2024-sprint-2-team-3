@@ -55,9 +55,60 @@ public class AnswerDao
         }
 
         return answers;
+    }
 
+    public Answer getAnswerById(int answerId)
+    {
+        String sql = """
+                SELECT question_id
+                    , answer_text
+                    , is_correct
+               FROM answer
+               WHERE answer_id = ?;
+               """;
 
+        var row = jdbcTemplate.queryForRowSet(sql, answerId);
 
+        if (row.next())
+        {
+            int questionId = row.getInt("question_id");
+            String answerText = row.getString("answer_text");
+            Boolean isCorrect = row.getBoolean("is_correct");
 
+            Answer answer = new Answer(answerId, questionId, answerText, isCorrect);
+            return answer;
+        }
+
+        return null;
+    }
+
+    public void addAnswer(Answer answer)
+    {
+        String sql = """
+                INSERT INTO answer (question_id, answer_text, is_correct)
+                VALUES (?, ?, ?);
+                """;
+
+        jdbcTemplate.update(sql
+                , answer.getQuestionId()
+                , answer.getAnswerText()
+                , answer.getIsCorrect());
+    }
+
+    public void editAnswer(Answer answer)
+    {
+        String sql = """
+                UPDATE answer
+                SET question_id = ?
+                    , answer_text = ?
+                    , is_correct = ?
+                WHERE answer_id = ?
+                """;
+
+        jdbcTemplate.update(sql
+                , answer.getQuestionId()
+                , answer.getAnswerText()
+                , answer.getIsCorrect()
+                , answer.getAnswerId());
     }
 }
