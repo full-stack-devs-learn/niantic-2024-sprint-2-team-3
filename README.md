@@ -64,6 +64,14 @@ This pair programming project was developed by Charletta Harris and Jane Huynh.
 * The page also allows users to either add a new question or edit an already existing question. The functionality is
   similar to quiz management’s add or edit features.
 
+### Question Details
+
+<img src="/images-README/question-details.png" width="800">
+
+* The Question Details page displays a list of all the answers associated with a particular question.
+* The page also allows users to either add a new answer or edit an already existing answer. The functionality is
+  similar to quiz management’s add or edit features.
+
 ## Instructions
 
 ### How To Take A Quiz
@@ -106,11 +114,20 @@ This pair programming project was developed by Charletta Harris and Jane Huynh.
     * For any edits, replace the original details pre-filled on the inputs with the new details
     * Press submit
 
-### How to View Answers for a Question
+### How to Create New Answers or Edit An Existing Answer
 
 * Navigate
     * Press Quizzes on the Navigation Bar
+    * Press View Answers Button on the quiz whose answers you want to view
     * In the table, click on the Question Text or press the View Answers button
+* How To Add a New Answer
+    * Press the Add Answer button underneath the Quiz Title Heading
+    * Enter the required information and select the quiz you want the question to be under
+    * Press Submit
+* How To Edit an Existing Answer
+    * Press the Edit Answer Button on the same row as the question you are intending to edit
+    * For any edits, replace the original details pre-filled on the inputs with the new details
+    * Press submit
 
 ## Development Process
 
@@ -182,12 +199,10 @@ While we were working through this part of the project, we encountered three obs
 * Steps:
     * First, we revisited the demo code to review the structure of the ```fetch()``` function.
     * Then, we followed the structure and replacing certain parts to fit our web page’s needs.
-    * Originally we wrote response.text() for the API ```fetch()``` because that was the format we were used to from the
-      previous day’s exercise where we used fetch() with a HTML fragment rather than an API.
-* Solution: An error occurred at this point, because instead of response.text(), we were supposed to write
-  response.json().
-* Note: For each new "feature" of any API call, we would test it out in the browser before continuing on to the next
-  one.
+    * Originally we wrote ```response.text()``` for the API ```fetch()``` because that was the format we were used to from the
+      previous day’s exercise where we used ```fetch()``` with a HTML fragment rather than an API.
+* Solution: An error occurred at this point, because instead of ```response.text()```, we were supposed to write
+  ```response.json()```.
 
 #### Obstacle 2: Going from the last question to the result page fragment
 
@@ -207,21 +222,10 @@ While we were working through this part of the project, we encountered three obs
     * We first inspected the webpage to debug the problem using the browser console and saw that the API ```fetch()``` for the
       first set of answers
       would return undefined for the first question’s url.
-    * The undefined part of the url was the questionId (global variable) which was inserted into the API fetch. After
+    * The undefined part of the url was the questionId (global variable) which was inserted into the API ```fetch()```. After
       some time of going through the bug with debugger several times, we thought that it was probably where we called
       the function to load the answers with the API.
-        * ```loadAnswer()``` was originally placed after calling ```loadQuestion()``` in the event listener for the button click
-          event. We thought that after everything in loadQuestion() was completed, it was logical to call ```loadAnswer()```
-          in the next line of the eventListener. This was not
-          the case.
-        * Since the button click ```eventListener()``` was placed inside the DOM content ```loaded eventListener()```, we thought
-          that it was probably running both functions at the same time. We then moved ```loadAnswer()``` to be inside
-          ```loadQuestion()``` at the end of the code block so that ```loadAnswer()``` did not get called until after everything in
-          ```loadQuestion()``` ran. We wanted to make sure questionId received the correct value and was not undefined.
-        * That did not work as well. We then thought that we should move the function to the nested code block where
-          questionId’s value becomes bound to the variable.
-* Solution: Moving ```loadAnswer()``` did work as the questionId would be set at the same scope as the answer fetch url that
-  needed the questionId.
+* Solution: Moving ```loadAnswer()``` in the question ```fetch()``` request did work as the questionId would be set at the same scope.
 
 ### Challenge 2: How to Set Boolean Value to Insert into the Database
 
@@ -371,13 +375,11 @@ function loadQuestion()
 * Worked more on the aesthetics and design
     * Add more shapes and images to brighten up webpage
     * Make a custom page and not rely on a bootstrap framework
-    * Create a more solid theme and color scheme
-* Add the add/edit answer functionality.
-* Not allow white space as an input on client-side validation (server-side already checks this).
-* Immediate feedback that tells users if their answer was correct or not after submitting
+* Add the delete answer functionality
+* Have a skip question button that allows users to skip a question that will come back later after the last question
+* List all the user's selected answers, questions and its corresponding correct answer in the results page
+* Not allow white space as an input on client-side validation (server-side already checks this)
 * Automatically disable a quiz if users added a question with no answer(s)
-* Have different types of answers included in the quiz (e.g. not just radio buttons but also checkboxes or input text)
-
 
 
 
